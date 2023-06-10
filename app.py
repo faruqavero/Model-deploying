@@ -5,13 +5,13 @@ import tensorflow as tf
 app = Flask(__name__)
 
 # Load the TensorFlow Lite model
-interpreter = tf.lite.Interpreter(model_path='C:\\Users\\windows 8\\Documents\\Model Capstone\\model-1.tflite')
+interpreter = tf.lite.Interpreter(model_path='C:\\Users\\windows 8\\Documents\\GitHub\\Model-deploying\\model1.tflite')
 interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
 # Define class labels
-class_labels = ['ESFP', 'INFJ', 'ENFP', 'ENTP', 'ESTJ', 'ISTJ', 'ISTP', 'ESTP', 'ISFP', 'ESFJ', 'ENFJ', 'INTJ', 'INTP', 'ISFJ', 'ENTJ', 'INFP']
+class_labels = ['ESTJ', 'ENTJ', 'ESFJ', 'ENFJ', 'ISTJ', 'ISFJ', 'INTJ', 'INFJ', 'ESTP', 'ESFP', 'ENTP', 'ENFP', 'ISTP', 'ISFP', 'INTP', 'INFP']
 
 @app.route('/predict', methods=['POST'])
 def predict():
